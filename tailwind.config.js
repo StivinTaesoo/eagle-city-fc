@@ -26,7 +26,7 @@ module.exports = {
             },
             backgroundImage: {
                 "hero-bg":
-                    'linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("/src/images/hero-bg.png")',
+                    'linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("./src/images/hero-bg.png")',
                 "transparent-bg":
                     "linear-gradient(to bottom, transparent, 60%, #54237C)",
             },
