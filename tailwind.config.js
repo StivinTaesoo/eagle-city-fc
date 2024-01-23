@@ -18,6 +18,7 @@ module.exports = {
                 grayLight: "#F6F6F6",
                 grayDarker: "#D9D9D9",
                 grey: "#121212",
+                grayscale: "#585858",
             },
             fontFamily: {
                 barlow: ['"Barlow Condensed"', ...defaultTheme.fontFamily.sans],

@@ -3,18 +3,432 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="./src/main.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,500;1,600&family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
-        <title>Document</title>
+        <title>About Eagle City FC</title>
     </head>
-    <body>
-        <h1 class="text-7xl text-center font-bold font-barlow uppercase">
-            About Us
-        </h1>
+    <body class="w-full">
+        <!-- ============== NAV SECTION ======================== -->
+        <nav class="relative w-full bg-purplePrimary">
+            <!-- NAV FLEX CONTAINER -->
+            <div
+                class="px-4 py-[20px] flex items-center justify-between mx-auto w-full lg:px-8 xl:px-20 lg:pt-16 lg:pb-8"
+                id="hideNav"
+            >
+                <div class="flex items-center">
+                    <!-- NAV LOGO -->
+                    <div class="pt-2 absolute z-20 -bottom-8 lg:-bottom-12">
+                        <a href="index.html">
+                            <img
+                                src="./src/images/logo.png"
+                                alt="logo"
+                                class="h-20 w-20 lg:w-[126px] lg:h-[126px]"
+                            />
+                        </a>
+                    </div>
+
+                    <!-- NAV MENU ITEMS -->
+                    <div
+                        class="hidden ml-[10.5rem] text-[24px] text-white lg:space-x-8 xl:space-x-16 uppercase font-barlow lg:flex"
+                    >
+                        <a href="index.html" class="hover:text-purpleLight"
+                            >Home
+                        </a>
+                        <a href="about.html" class="hover:text-purpleLight"
+                            >About Eagle City FC
+                        </a>
+                        <a href="team.html" class="hover:text-purpleLight"
+                            >Team
+                        </a>
+                        <a href="matches.html" class="hover:text-purpleLight"
+                            >Match Center
+                        </a>
+                        <a href="news.html" class="hover:text-purpleLight"
+                            >News
+                        </a>
+                        <a href="contact.html" class="hover:text-purpleLight"
+                            >Contact Us
+                        </a>
+                    </div>
+                </div>
+                <!-- Search Icon -->
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 text-white hidden cursor-pointer lg:block show-search-bar"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    />
+                </svg>
+                <!-- Menu Icon -->
+                <svg
+                    id="menuBtn"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 text-white lg:hidden hide-entity"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
+                    />
+                </svg>
+            </div>
+            <!-- Search Bar Container -->
+            <div class="search-bar hidden w-full px-8 py-[20px] xl:px-40">
+                <div
+                    class="w-full flex flex-row items-center rounded-full bg-white px-6 py-2 lg:px-8 lg:py-4"
+                >
+                    <!-- Search Bar -->
+                    <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder="Search"
+                    />
+                    <!-- Search Icon -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-grayDarker cursor-pointer"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                        />
+                    </svg>
+                </div>
+            </div>
+            <!-- MOBILE MENU -->
+            <div
+                class="w-full h-lvh absolute -top-[1000px] transition-all flex flex-col bg-purplePrimary z-20 p-8"
+                id="mobileMenu"
+            >
+                <!-- Close Menu-Icon -->
+                <div
+                    class="w-full flex justify-end text-white mb-12"
+                    id="closeMenu"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-white"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18 18 6M6 6l12 12"
+                        />
+                    </svg>
+                </div>
+
+                <!-- Mobile Menu Items -->
+                <div
+                    class="w-full flex items-center space-y-8 flex-col text-[24px] text-white uppercase font-barlow lg:hidden"
+                >
+                    <a href="index.html" class="hover:text-purpleLight"
+                        >Home
+                    </a>
+                    <a href="about.html" class="hover:text-purpleLight"
+                        >About Eagle City FC
+                    </a>
+                    <a href="team.html" class="hover:text-purpleLight">Team </a>
+                    <a href="matches.html" class="hover:text-purpleLight"
+                        >Match Center
+                    </a>
+                    <a href="news.html" class="hover:text-purpleLight">News </a>
+                    <a href="contact.html" class="hover:text-purpleLight"
+                        >Contact Us
+                    </a>
+                    <div class="hover:text-purpleLight show-search-bar">
+                        Search
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- ============== HERO SECTION ======================= -->
+        <section
+            class="w-full h-[430px] relative bg-yellowSecondary bg-cover lg:h-[500px]"
+            style="background-image: url(./src/images/hero-bg.png)"
+        >
+            <!-- Transparent Background  -->
+            <div class="w-full h-full bg-black opacity-50"></div>
+
+            <!-- Text Container -->
+            <div
+                class="absolute top-0 w-full h-full px-4 pt-[9rem] lg:pt-[14rem] lg:px-8 xl:px-20"
+            >
+                <div class="text-white">
+                    <h1 class="text-[38px] font-barlow font-bold lg:text-7xl">
+                        Our Club
+                    </h1>
+                    <p class="font-manrope pt-4 md:w-2/4 lg:w-1/3">
+                        It is a long established fact that a reader will be
+                        distracted by the readable content of a page when
+                        looking at its layout
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ OUR HISTORY SECTION ================== -->
+        <section class="w-full px-4 py-[4rem] lg:py-[6rem] lg:px-8 xl:px-20">
+            <div class="text-center">
+                <h2
+                    class="font-barlow uppercase font-semibold text-purplePrimary text-[24px] lg:text-[58.3px]"
+                >
+                    Our History
+                </h2>
+                <!-- Yellow Line -->
+                <div
+                    class="w-[13px] h-[1.16px] mt-[.4rem] bg-yellowSecondary mx-auto skew-x-20 lg:w-[35.7px] lg:h-[2.9px]"
+                ></div>
+                <p
+                    class="font-manrope font-medium text-[12px] text-left text-grey mt-[1rem] lg:text-center lg:text-[14.48px] lg:px-40"
+                >
+                    Over the years, we've achieved remarkable milestones, and we
+                    continue to strive for greatness on and off the pitch. We're
+                    not just a football club; we're a community of passionate
+                    players, fans, and supporters who share a deep love for the
+                    beautiful game. Nestled in the heart of our vibrant city, we
+                    are more than just a club; we're a family.
+                </p>
+            </div>
+            <div class="w-full my-8">
+                <img src="./src/images/pitch.png" alt="" class="w-full" />
+            </div>
+        </section>
+
+        <!-- ============ VISION & MISSION SECTION ============= -->
+        <section class="w-full flex flex-col lg:flex-row px-4 lg:px-8 xl:px-40">
+            <!-- Mission Container -->
+            <div class="w-full lg:w-1/2">
+                <h2
+                    class="font-barlow uppercase font-semibold text-purplePrimary text-[24px] lg:text-[58.3px]"
+                >
+                    Our Mission
+                </h2>
+                <!-- Yellow Line -->
+                <div
+                    class="w-[13px] h-[1.16px] mt-[.4rem] bg-yellowSecondary skew-x-20 lg:w-[35.7px] lg:h-[2.9px]"
+                ></div>
+                <p
+                    class="w-full font-manrope font-medium text-[12px] text-left text-grey my-[1.5rem] lg:text-[14.48px] lg:w-[418.96px]"
+                >
+                    Our mission is to provide a platform for players to develop
+                    their skills and create lifelong memories.
+                </p>
+                <div class="w-full lg:w-[418.96px]">
+                    <img
+                        src="./src/images/image-5.png"
+                        alt=""
+                        class="w-full rounded-md"
+                    />
+                </div>
+            </div>
+
+            <!-- Vision Container -->
+            <div class="w-full lg:w-1/2 mt-[1rem]">
+                <div class="w-full lg:w-[513px]">
+                    <img
+                        src="./src/images/image-6.png"
+                        alt=""
+                        class="w-full rounded-md"
+                    />
+                </div>
+                <h2
+                    class="font-barlow uppercase font-semibold text-purplePrimary mt-[1rem] text-[24px] lg:text-[58.3px]"
+                >
+                    Our Vision
+                </h2>
+                <!-- Yellow Line -->
+                <div
+                    class="w-[13px] h-[1.16px] mt-[.4rem] bg-yellowSecondary skew-x-20 lg:w-[35.7px] lg:h-[2.9px]"
+                ></div>
+                <p
+                    class="font-manrope font-medium text-[12px] text-left text-grey my-[1.5rem] lg:text-[14.48px] lg:w-[513px]"
+                >
+                    Our vision is simple: to inspire and unite our community
+                    through the power of football. We believe in the values of
+                    teamwork, sportsmanship, and determination
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT US SECTION =================== -->
+        <section class="w-full px-4 mt-[4rem] lg:px-8 xl:px-20">
+            <h2
+                class="font-barlow uppercase font-semibold text-center text-purplePrimary text-[24px] lg:text-[58.3px]"
+            >
+                Feel Free To Contact Us
+            </h2>
+            <!-- Items Container -->
+            <div
+                class="flex flex-col lg:space-x-16 lg:flex-row mt-[1.5rem] lg:mt-[3rem]"
+            >
+                <!-- Item - 1 -->
+                <div
+                    class="w-full flex items-center my-[8px] space-x-8 lg:w-1/2 bg-grayLight p-8 lg:p-12 rounded-xl"
+                >
+                    <!-- Vector Icon - Phone -->
+                    <div
+                        class="w-[53px] h-[53px] flex items-center justify-center bg-purplePrimary rounded-full lg:w-[96px] lg:h-[96px]"
+                    >
+                        <img
+                            src="./src/images/mail.png"
+                            alt=""
+                            class="w-[15px] h-[15px] lg:w-[39px] lg:h-[30px]"
+                        />
+                    </div>
+
+                    <!-- Text Container -->
+                    <div>
+                        <h3 class="font-barlow text-[13px] lg:text-[24px]">
+                            Email Address
+                        </h3>
+                        <p
+                            class="font-manrope text-grayscale text-[10px] lg:text-[18px] lg:mt-[1rem]"
+                        >
+                            contact@Eaglecity.com
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item - 2 -->
+                <div
+                    class="w-full flex items-center my-[8px] space-x-8 lg:w-1/2 bg-grayLight p-8 lg:p-12 rounded-xl"
+                >
+                    <!-- Vector Icon - Phone -->
+                    <div
+                        class="w-[53px] h-[53px] flex items-center justify-center bg-purplePrimary rounded-full lg:w-[96px] lg:h-[96px]"
+                    >
+                        <img
+                            src="./src/images/phone.png"
+                            alt=""
+                            class="w-[15px] h-[15px] lg:w-[39px] lg:h-[30px]"
+                        />
+                    </div>
+
+                    <!-- Text Container -->
+                    <div>
+                        <h3 class="font-barlow text-[13px] lg:text-[24px]">
+                            Phone Number
+                        </h3>
+                        <p
+                            class="font-manrope text-grayscale text-[10px] lg:text-[18px] lg:mt-[1rem]"
+                        >
+                            +234 810 179 0957
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FOOTER SECTION ======================= -->
+        <section
+            class="hidden w-full bg-purplePrimary pt-[12rem] pb-[6rem] mt-[4rem] px-8 xl:px-20 lg:block"
+        >
+            <div class="flex items-center justify-between">
+                <a href="index.html">
+                    <img src="./src/images/logo-2.png" alt=""
+                /></a>
+                <div>
+                    <!-- NAV MENU ITEMS -->
+                    <div
+                        class="text-[24px] text-yellowSecondary lg:space-x-8 xl:space-x-16 uppercase font-barlow lg:flex"
+                    >
+                        <a href="index.html" class="hover:text-purpleLight"
+                            >Home
+                        </a>
+                        <a href="news.html" class="hover:text-purpleLight"
+                            >News
+                        </a>
+                        <a href="contact.html" class="hover:text-purpleLight"
+                            >Contact Us
+                        </a>
+                        <a href="contact.html" class="hover:text-purpleLight"
+                            >Get Social With Us
+                        </a>
+                    </div>
+                    <div
+                        class="flex items-center justify-end space-x-4 mt-[1rem]"
+                    >
+                        <a href="#">
+                            <img src="./src/images/facebook.png" alt=""
+                        /></a>
+                        <a href="#">
+                            <img src="./src/images/twitter.png" alt=""
+                        /></a>
+                        <a href="#">
+                            <img src="./src/images/instagram.png" alt=""
+                        /></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="text-center text-white text-[16px] font-manrope font-normal pt-[8rem]"
+            >
+                &copy; 2023 Eagle City FC, All Rights Reserved
+            </div>
+        </section>
+
+        <!-- ============ MOBILE FOOTER ======================== -->
+        <section
+            class="w-full px-4 bg-purplePrimary pt-[5rem] mt-[3rem] pb-[6rem] lg:hidden"
+        >
+            <div class="w-[81px] h-[81px] mx-auto">
+                <a href="index.html">
+                    <img src="./src/images/logo-2.png" alt="" class="w-full"
+                /></a>
+            </div>
+            <div
+                class="flex items-center pt-[3rem] mb-[2rem] justify-between text-[24px] text-yellowSecondary uppercase font-barlow"
+            >
+                <a href="index.html" class="hover:text-purpleLight">Home </a>
+                <a href="news.html" class="hover:text-purpleLight">News </a>
+            </div>
+            <div
+                class="flex items-center justify-between text-[24px] text-yellowSecondary uppercase font-barlow"
+            >
+                <a href="contact.html" class="hover:text-purpleLight"
+                    >Contact Us
+                </a>
+                <a href="contact.html" class="hover:text-purpleLight"
+                    >Get Social With Us
+                </a>
+            </div>
+            <div class="flex items-center justify-end space-x-4 mt-[1rem]">
+                <a href="#"> <img src="./src/images/facebook.png" alt="" /></a>
+                <a href="#"> <img src="./src/images/twitter.png" alt="" /></a>
+                <a href="#"> <img src="./src/images/instagram.png" alt="" /></a>
+            </div>
+            <div
+                class="text-center text-white text-[16px] font-manrope font-normal pt-[6rem]"
+            >
+                &copy; 2023 Eagle City FC, All Rights Reserved
+            </div>
+        </section>
+
+        <script src="app.js"></script>
     </body>
 </html>
