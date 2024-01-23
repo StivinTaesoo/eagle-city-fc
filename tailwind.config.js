@@ -26,9 +26,11 @@ module.exports = {
             },
             backgroundImage: {
                 "hero-bg":
-                    'linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("./src/images/hero-bg.png")',
+                    "linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5))",
                 "transparent-bg":
                     "linear-gradient(to bottom, transparent, 60%, #54237C)",
+                "black-transparent":
+                    '"linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5))"',
             },
             skew: {
                 20: "320deg",
