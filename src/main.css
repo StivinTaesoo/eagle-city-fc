@@ -623,19 +623,14 @@ video {
   margin-bottom: 3rem;
 }
 
-.my-\[8px\] {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-.my-\[5rem\] {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
-
 .my-\[6rem\] {
   margin-top: 6rem;
   margin-bottom: 6rem;
+}
+
+.my-\[8px\] {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .-mb-\[10px\] {
