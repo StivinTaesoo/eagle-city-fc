@@ -3,18 +3,1083 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="./src/main.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,500;1,600&family=Manrope:wght@200;300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
-        <title>Document</title>
+        <title>Latest News</title>
     </head>
     <body>
-        <h1 class="text-7xl text-center font-bold font-barlow uppercase">
-            News
-        </h1>
+        <!-- ============== NAV SECTION ======================== -->
+        <nav class="relative w-full bg-purplePrimary">
+            <!-- NAV FLEX CONTAINER -->
+            <div
+                class="px-4 py-[20px] flex items-center justify-between mx-auto w-full lg:px-8 xl:px-20 lg:pt-16 lg:pb-8"
+                id="hideNav"
+            >
+                <div class="flex items-center">
+                    <!-- NAV LOGO -->
+                    <div class="pt-2 absolute z-20 -bottom-8 lg:-bottom-12">
+                        <a href="index.html">
+                            <img
+                                src="./src/images/logo.png"
+                                alt="logo"
+                                class="h-20 w-20 lg:w-[126px] lg:h-[126px]"
+                            />
+                        </a>
+                    </div>
+
+                    <!-- NAV MENU ITEMS -->
+                    <div
+                        class="hidden ml-[10.5rem] text-[24px] text-white lg:space-x-8 xl:space-x-16 uppercase font-barlow lg:flex"
+                    >
+                        <a href="index.html" class="hover:text-purpleLight"
+                            >Home
+                        </a>
+                        <a href="about.html" class="hover:text-purpleLight"
+                            >About Eagle City FC
+                        </a>
+                        <a href="team.html" class="hover:text-purpleLight"
+                            >Team
+                        </a>
+                        <a href="matches.html" class="hover:text-purpleLight"
+                            >Match Center
+                        </a>
+                        <a href="news.html" class="hover:text-purpleLight"
+                            >News
+                        </a>
+                        <a href="contact.html" class="hover:text-purpleLight"
+                            >Contact Us
+                        </a>
+                    </div>
+                </div>
+                <!-- Search Icon -->
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 text-white hidden cursor-pointer lg:block show-search-bar"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    />
+                </svg>
+                <!-- Menu Icon -->
+                <svg
+                    id="menuBtn"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 text-white lg:hidden hide-entity"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
+                    />
+                </svg>
+            </div>
+            <!-- Search Bar Container -->
+            <div class="search-bar hidden w-full px-8 py-[20px] xl:px-40">
+                <div
+                    class="w-full flex flex-row items-center rounded-full bg-white px-6 py-2 lg:px-8 lg:py-4"
+                >
+                    <!-- Search Bar -->
+                    <input
+                        type="text"
+                        class="w-full focus:outline-none"
+                        placeholder="Search"
+                    />
+                    <!-- Search Icon -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-grayDarker cursor-pointer"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                        />
+                    </svg>
+                </div>
+            </div>
+            <!-- MOBILE MENU -->
+            <div
+                class="w-full h-lvh absolute -top-[1000px] transition-all flex flex-col bg-purplePrimary z-20 p-8"
+                id="mobileMenu"
+            >
+                <!-- Close Menu-Icon -->
+                <div
+                    class="w-full flex justify-end text-white mb-12"
+                    id="closeMenu"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-white"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18 18 6M6 6l12 12"
+                        />
+                    </svg>
+                </div>
+
+                <!-- Mobile Menu Items -->
+                <div
+                    class="w-full flex items-center space-y-8 flex-col text-[24px] text-white uppercase font-barlow lg:hidden"
+                >
+                    <a href="index.html" class="hover:text-purpleLight"
+                        >Home
+                    </a>
+                    <a href="about.html" class="hover:text-purpleLight"
+                        >About Eagle City FC
+                    </a>
+                    <a href="team.html" class="hover:text-purpleLight">Team </a>
+                    <a href="matches.html" class="hover:text-purpleLight"
+                        >Match Center
+                    </a>
+                    <a href="news.html" class="hover:text-purpleLight">News </a>
+                    <a href="contact.html" class="hover:text-purpleLight"
+                        >Contact Us
+                    </a>
+                    <div class="hover:text-purpleLight show-search-bar">
+                        Search
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ============== HERO SECTION ======================= -->
+        <section class="w-full h-[400px] relative bg-cover lg:h-[500px]">
+            <!-- Text Container -->
+            <div
+                class="absolute bg-purpleDarker top-0 w-full h-full px-4 pt-[12rem] lg:pt-[14rem] lg:px-8 xl:px-20"
+            >
+                <div class="flex items-center justify-between">
+                    <h1
+                        class="text-[36px] text-white font-barlow font-bold lg:text-7xl"
+                    >
+                        Latest News
+                    </h1>
+                    <div
+                        class="w-[130px] flex justify-center bg-purpleBright rounded-md text-[12px] lg:text-[14px] lg:h-[38px] lg:w-[200px]"
+                    >
+                        <select class="bg-purpleBright text-white py-2">
+                            <option value="0">Show All</option>
+                            <option value="1">Champions Cup</option>
+                            <option value="2">Charity Cup</option>
+                            <option value="3">National League</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== LATEST NEWS SECTION ======================= -->
+        <section class="w-full pt-[2rem] px-4 lg:-mt-[6rem] lg:px-8 xl:px-20">
+            <div
+                class="w-full min-w-[297px] lg:min-w-[525px] lg:flex justify-center"
+            >
+                <!-- Item 1 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item - 2 -->
+
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-2.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item - 3 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-1.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full px-4 lg:my-4 lg:px-8 xl:px-20">
+            <div
+                class="w-full min-w-[297px] lg:min-w-[525px] lg:flex justify-center"
+            >
+                <!-- Item 1 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item - 2 -->
+
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-2.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item - 3 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-1.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full px-4 lg:my-4 lg:px-8 xl:px-20">
+            <div
+                class="w-full min-w-[297px] lg:min-w-[525px] lg:flex justify-center"
+            >
+                <!-- Item 1 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item - 2 -->
+
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-2.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item - 3 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-1.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full px-4 lg:my-4 lg:px-8 xl:px-20">
+            <div
+                class="w-full min-w-[297px] lg:min-w-[525px] lg:flex justify-center"
+            >
+                <!-- Item 1 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item - 2 -->
+
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-2.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item - 3 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-1.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full px-4 lg:my-4 lg:px-8 xl:px-20">
+            <div
+                class="w-full min-w-[297px] lg:min-w-[525px] lg:flex justify-center"
+            >
+                <!-- Item 1 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item - 2 -->
+
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-2.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item - 3 -->
+                <div class="w-full">
+                    <div
+                        class="min-w-[234px] relative my-4 lg:my-0 lg:w-[384px] lg:min-w-[384px]"
+                    >
+                        <img
+                            src="./src/images/image-1.png"
+                            alt=""
+                            class="w-full"
+                        />
+
+                        <!-- Yellow Box -->
+                        <div
+                            class="w-full absolute bg-yellowSecondary text-purplePrimary px-8 py-4 lg:p-8 z-20 bottom-0"
+                        >
+                            <div class="flex items-center space-x-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-[8.5px] h-[8.5px] lg:w-[13.98px] lg:h-[13.98px]"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    />
+                                </svg>
+                                <p
+                                    class="font-manrope text-[8px] lg:text-[10.48px]"
+                                >
+                                    19 October 2023
+                                </p>
+                            </div>
+
+                            <h3
+                                class="text-[14.6px] font-barlow font-semibold text-purplePrimary lg:text-[24px]"
+                            >
+                                Eagle City FC VS Arsenal FC
+                            </h3>
+                            <p
+                                class="font-manrope uppercase font-medium text-[8px] lg:text-[10.48px] mt-[1rem]"
+                            >
+                                Match Review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full">
+            <div class="w-full py-4 text-center">
+                <!-- ========== Yellow Button ============== -->
+                <button
+                    class="w-[160.53px] uppercase py-4 rounded bg-yellowSecondary text-purplePrimary font-barlow font-semibold py-[8.54px] lg:py-[15px] lg:text-[18px] lg:w-[284px]"
+                >
+                    Buy Tickets
+                </button>
+            </div>
+        </section>
+
+        <!-- ============ FOOTER SECTION ======================= -->
+        <section
+            class="hidden w-full bg-purplePrimary pt-[12rem] pb-[6rem] mt-[4rem] px-8 xl:px-20 lg:block"
+        >
+            <div class="flex items-center justify-between">
+                <a href="index.html">
+                    <img src="./src/images/logo-2.png" alt=""
+                /></a>
+                <div>
+                    <!-- NAV MENU ITEMS -->
+                    <div
+                        class="text-[24px] text-yellowSecondary lg:space-x-8 xl:space-x-16 uppercase font-barlow lg:flex"
+                    >
+                        <a href="index.html" class="hover:text-purpleLight"
+                            >Home
+                        </a>
+                        <a href="news.html" class="hover:text-purpleLight"
+                            >News
+                        </a>
+                        <a href="contact.html" class="hover:text-purpleLight"
+                            >Contact Us
+                        </a>
+                        <a href="contact.html" class="hover:text-purpleLight"
+                            >Get Social With Us
+                        </a>
+                    </div>
+                    <div
+                        class="flex items-center justify-end space-x-4 mt-[1rem]"
+                    >
+                        <a href="#">
+                            <img src="./src/images/facebook.png" alt=""
+                        /></a>
+                        <a href="#">
+                            <img src="./src/images/twitter.png" alt=""
+                        /></a>
+                        <a href="#">
+                            <img src="./src/images/instagram.png" alt=""
+                        /></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="text-center text-white text-[16px] font-manrope font-normal pt-[8rem]"
+            >
+                &copy; 2023 Eagle City FC, All Rights Reserved
+            </div>
+        </section>
+
+        <!-- ============ MOBILE FOOTER ======================== -->
+        <section
+            class="w-full px-4 bg-purplePrimary pt-[5rem] mt-[3rem] pb-[6rem] lg:hidden"
+        >
+            <div class="w-[81px] h-[81px] mx-auto">
+                <a href="index.html">
+                    <img src="./src/images/logo-2.png" alt="" class="w-full"
+                /></a>
+            </div>
+            <div
+                class="flex items-center pt-[3rem] mb-[2rem] justify-between text-[24px] text-yellowSecondary uppercase font-barlow"
+            >
+                <a href="index.html" class="hover:text-purpleLight">Home </a>
+                <a href="news.html" class="hover:text-purpleLight">News </a>
+            </div>
+            <div
+                class="flex items-center justify-between text-[24px] text-yellowSecondary uppercase font-barlow"
+            >
+                <a href="contact.html" class="hover:text-purpleLight"
+                    >Contact Us
+                </a>
+                <a href="contact.html" class="hover:text-purpleLight"
+                    >Get Social With Us
+                </a>
+            </div>
+            <div class="flex items-center justify-end space-x-4 mt-[1rem]">
+                <a href="#"> <img src="./src/images/facebook.png" alt="" /></a>
+                <a href="#"> <img src="./src/images/twitter.png" alt="" /></a>
+                <a href="#"> <img src="./src/images/instagram.png" alt="" /></a>
+            </div>
+            <div
+                class="text-center text-white text-[16px] font-manrope font-normal pt-[6rem]"
+            >
+                &copy; 2023 Eagle City FC, All Rights Reserved
+            </div>
+        </section>
+
+        <script src="app.js"></script>
     </body>
 </html>

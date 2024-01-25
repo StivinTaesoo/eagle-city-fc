@@ -602,6 +602,11 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -627,11 +632,6 @@ video {
   margin-bottom: 8px;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .-mb-\[10px\] {
   margin-bottom: -10px;
 }
@@ -646,6 +646,14 @@ video {
 
 .mb-12 {
   margin-bottom: 3rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-\[1rem\] {
+  margin-bottom: 1rem;
 }
 
 .mb-\[2rem\] {
@@ -698,18 +706,6 @@ video {
 
 .mt-\[6rem\] {
   margin-top: 6rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-.mb-\[1rem\] {
-  margin-bottom: 1rem;
 }
 
 .flex {
@@ -884,6 +880,10 @@ video {
   width: 100%;
 }
 
+.w-\[130px\] {
+  width: 130px;
+}
+
 .min-w-\[160\.65px\] {
   min-width: 160.65px;
 }
@@ -971,22 +971,16 @@ video {
   margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
 .space-y-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
-.space-y-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
 .overflow-x-scroll {
@@ -1189,6 +1183,11 @@ video {
   padding-bottom: 20px;
 }
 
+.py-\[3rem\] {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .py-\[4rem\] {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -1197,16 +1196,6 @@ video {
 .py-\[8\.54px\] {
   padding-top: 8.54px;
   padding-bottom: 8.54px;
-}
-
-.py-\[2rem\] {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.py-\[3rem\] {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 
 .pb-4 {
@@ -1261,8 +1250,8 @@ video {
   padding-top: 9rem;
 }
 
-.pb-0 {
-  padding-bottom: 0px;
+.pt-\[2rem\] {
+  padding-top: 2rem;
 }
 
 .text-left {
@@ -1364,6 +1353,14 @@ video {
 
 .text-\[9px\] {
   font-size: 9px;
+}
+
+.text-\[34px\] {
+  font-size: 34px;
+}
+
+.text-\[36px\] {
+  font-size: 36px;
 }
 
 .font-bold {
@@ -1519,8 +1516,22 @@ video {
     margin-bottom: 8rem;
   }
 
+  .lg\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .lg\:my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .lg\:-mt-\[1rem\] {
     margin-top: -1rem;
+  }
+
+  .lg\:mb-0 {
+    margin-bottom: 0px;
   }
 
   .lg\:mt-\[1rem\] {
@@ -1535,8 +1546,8 @@ video {
     margin-top: 8rem;
   }
 
-  .lg\:mb-0 {
-    margin-bottom: 0px;
+  .lg\:-mt-\[6rem\] {
+    margin-top: -6rem;
   }
 
   .lg\:block {
@@ -1589,6 +1600,10 @@ video {
 
   .lg\:h-\[96px\] {
     height: 96px;
+  }
+
+  .lg\:h-\[38px\] {
+    height: 38px;
   }
 
   .lg\:w-1\/2 {
@@ -1653,6 +1668,10 @@ video {
 
   .lg\:w-\[97\.55px\] {
     width: 97.55px;
+  }
+
+  .lg\:w-\[300px\] {
+    width: 300px;
   }
 
   .lg\:min-w-\[384px\] {
@@ -1754,6 +1773,11 @@ video {
     padding-bottom: 0.5rem;
   }
 
+  .lg\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
   .lg\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -1774,9 +1798,8 @@ video {
     padding-bottom: 6rem;
   }
 
-  .lg\:py-3 {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+  .lg\:pb-0 {
+    padding-bottom: 0px;
   }
 
   .lg\:pb-8 {
@@ -1787,12 +1810,12 @@ video {
     padding-bottom: 2rem;
   }
 
-  .lg\:pr-8 {
-    padding-right: 2rem;
+  .lg\:pr-60 {
+    padding-right: 15rem;
   }
 
-  .lg\:pr-\[20px\] {
-    padding-right: 20px;
+  .lg\:pr-8 {
+    padding-right: 2rem;
   }
 
   .lg\:pt-16 {
@@ -1817,18 +1840,6 @@ video {
 
   .lg\:pt-\[6rem\] {
     padding-top: 6rem;
-  }
-
-  .lg\:pr-\[6rem\] {
-    padding-right: 6rem;
-  }
-
-  .lg\:pr-80 {
-    padding-right: 20rem;
-  }
-
-  .lg\:pr-60 {
-    padding-right: 15rem;
   }
 
   .lg\:text-center {
@@ -1924,10 +1935,6 @@ video {
 
   .xl\:mt-\[6rem\] {
     margin-top: 6rem;
-  }
-
-  .xl\:block {
-    display: block;
   }
 
   .xl\:space-x-16 > :not([hidden]) ~ :not([hidden]) {
